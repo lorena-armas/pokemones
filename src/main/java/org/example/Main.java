@@ -1,17 +1,17 @@
 package org.example;
 
-import org.example.dao.PokemonDAO;
-import org.example.dao.PokemonDAOImpl;
 import org.example.dto.PokemonDTO;
-
+import org.example.service.PokemonService;
+import org.example.service.PokemonServiceImpl;
 import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        PokemonDAO pokemonDAO = new PokemonDAOImpl();
+        PokemonService pokemonService = new PokemonServiceImpl();
 
-        for (PokemonDTO pokemon : pokemonDAO.findAll() ){
-            System.out.println(pokemon);
+        for (PokemonDTO pokemonDTO : pokemonService.findAll()){
+            System.out.println(pokemonDTO);
         }
+
     }
 }
