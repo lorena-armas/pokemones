@@ -1,4 +1,4 @@
-package org.example.DAO;
+package org.example.dao;
 
 import org.example.commons.CsvReader;
 import org.example.dto.PokemonDTO;
@@ -15,23 +15,23 @@ public class PokemonDAOImpl implements PokemonDAO{
 
     @Override
     public List<PokemonDTO> findAll() throws IOException  {
-        List<PokemonDTO> pokemon = new ArrayList<>();
+        List<PokemonDTO> pokemonList = new ArrayList<>();
         try {
             CsvReader.getRecords(FILE, SEPARATOR)
                     .forEach(csvRecord -> {
 
-                        PokemonDTO pokemons = PokemonDTO.builder()
+                        PokemonDTO pokemon = PokemonDTO.builder()
                                 .name(csvRecord.get("NAME"))
                                 .type(csvRecord.get("TYPE"))
                                 .code(Integer.parseInt(csvRecord.get("CODE")))
                                 .build();
 
-                        pokemon.add(pokemons);
+                        pokemonList.add(pokemon);
                     });
         } catch (Exception exception) {
             throw new IllegalArgumentException("Error reading CSV", exception);
         }
-        return pokemon;
+        return pokemonList;
     }
 
     @Override

@@ -12,6 +12,7 @@ import java.io.Serializable;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
+@ToString
 public class PokemonDTO implements Serializable {
 
     private String type;

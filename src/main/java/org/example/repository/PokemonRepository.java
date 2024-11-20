@@ -1,6 +1,6 @@
 package org.example.repository;
 
-import org.example.DAO.PokemonDAO;
+import org.example.dao.PokemonDAO;
 import org.example.dto.PokemonDTO;
 import java.io.IOException;
 import java.util.List;
