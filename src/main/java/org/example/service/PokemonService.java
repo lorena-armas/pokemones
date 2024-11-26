@@ -8,4 +8,6 @@ import java.util.List;
 public interface PokemonService {
 
     List<PokemonDTO> findAll() throws IOException;
+
+    PokemonDTO findByCode(int code) throws IOException;
 }

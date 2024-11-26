@@ -2,7 +2,6 @@ package org.example.dao;
 
 import org.example.commons.CsvReader;
 import org.example.dto.PokemonDTO;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

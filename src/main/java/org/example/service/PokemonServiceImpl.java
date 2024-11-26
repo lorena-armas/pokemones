@@ -18,4 +18,12 @@ public class PokemonServiceImpl implements PokemonService{
         List<PokemonDTO> pokemonList = repository.findAll();
         return pokemonList;
     }
+
+    @Override
+    public PokemonDTO findByCode(int code) throws IOException {
+        PokemonDTO pokemonCode = repository.findByCode(code);
+        return pokemonCode;
+    }
+
+
 }
