@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PokemonDAOImpl implements PokemonDAO{
+public class PokemonCsvDAOImpl implements PokemonDAO{
 
     private final String FILE = "/pokemones/pokemons.csv";
     private static final char SEPARATOR = ',';

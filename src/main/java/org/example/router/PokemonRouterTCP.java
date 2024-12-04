@@ -23,12 +23,12 @@ public class PokemonRouterTCP extends Thread {
     ) {
       String operation = inputReader.readLine();
 
-      if(operation.matches("^pokemon/\\d{3}$")) {
+      if(operation.matches("^pokemones/\\d{3}$")) {
         String pokemonCode = operation.split("/")[1].trim();
         pokemonHandler.findByCode(Integer.parseInt(pokemonCode), outputWriter);
       }
 
-      if(operation.equals("/pokemones")) {
+      if(operation.equals("pokemones/")) {
         pokemonHandler.findAll(outputWriter);
       }
 

@@ -9,7 +9,7 @@ public class PropertiesReader {
     private static final String BASE_FILE_PATH = "./src/main/resources/";
     private static final String FILE_NAME = "application.properties";
 
-    public String getProperty(String propertyKey) {
+    public static String getProperty(String propertyKey) {
         String property;
         try{
             FileInputStream inputStream = new FileInputStream(BASE_FILE_PATH.concat(FILE_NAME));

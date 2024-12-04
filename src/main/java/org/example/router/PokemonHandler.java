@@ -25,8 +25,8 @@ public class PokemonHandler {
   }
 
   public void findByCode(int pokemonCode,PrintWriter output) throws IOException {
-    PokemonDTO pokemonList = pokemonService.findByCode(pokemonCode);
-    String pokemonJson = objectMapper.writeValueAsString(pokemonList);
+    PokemonDTO pokemon = pokemonService.findByCode(pokemonCode);
+    String pokemonJson = objectMapper.writeValueAsString(pokemon);
 
     output.println(pokemonJson);
   }
