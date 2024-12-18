@@ -1,5 +1,6 @@
 package org.example.service;
 
+import com.google.inject.Inject;
 import org.example.dto.PokemonDTO;
 import org.example.repository.PokemonRepository;
 import java.io.IOException;
@@ -9,8 +10,9 @@ public class PokemonServiceImpl implements PokemonService{
 
     private final PokemonRepository repository;
 
-    public PokemonServiceImpl() {
-        this.repository = new PokemonRepository();
+    @Inject
+    public PokemonServiceImpl(PokemonRepository pokemonRepository) {
+        this.repository = pokemonRepository;
     }
 
     @Override

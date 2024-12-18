@@ -1,26 +1,30 @@
 package org.example.router;
 
-import org.example.commons.PropertiesReader;
+import com.google.inject.Inject;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class ConnectionServer {
 
-  private final PropertiesReader propertiesReader;
+  private final PokemonRouterTCP pokemonRouterTCP;
+  private final ServerSocket serverSocket;
 
-  public ConnectionServer() {
-    this.propertiesReader = new PropertiesReader();
+  @Inject
+  public ConnectionServer(PokemonRouterTCP pokemonRouterTCP,
+                          ServerSocket serverSocket) {
+    this.pokemonRouterTCP = pokemonRouterTCP;
+    this.serverSocket = serverSocket;
   }
 
   public void start() throws IOException {
-    int port = Integer.parseInt(propertiesReader.getProperty("application.port"));
-    ServerSocket serverSocket = new ServerSocket(port);
-    Socket currentSocket;
+    Socket socket;
     while (true) {
-      currentSocket = serverSocket.accept();
-      new PokemonRouterTCP(currentSocket).start();
-      }
+      socket = serverSocket.accept();
+      pokemonRouterTCP.setSocket(socket);
+      pokemonRouterTCP.start();
+    }
   }
 
 }

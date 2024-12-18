@@ -1,5 +1,7 @@
 package org.example.router;
 
+import com.google.inject.Inject;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -8,11 +10,14 @@ import java.net.Socket;
 public class PokemonRouterTCP extends Thread {
 
   private final PokemonHandler pokemonHandler;
+  private Socket socket;
 
-  private final Socket socket;
+  @Inject
+  public PokemonRouterTCP(PokemonHandler pokemonHandler) {
+    this.pokemonHandler = pokemonHandler;
+  }
 
-  public PokemonRouterTCP(Socket socket) {
-    this.pokemonHandler = new PokemonHandler();
+  public void setSocket(Socket socket){
     this.socket = socket;
   }
 

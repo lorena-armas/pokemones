@@ -1,5 +1,6 @@
 package org.example.dao;
 
+import lombok.NoArgsConstructor;
 import org.example.commons.MySQLConnection;
 import org.example.dto.PokemonDTO;
 import java.sql.Connection;
@@ -8,6 +9,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+@NoArgsConstructor
 public class PokemonMySQLDAOImpl implements PokemonDAO{
 
     private Connection connection = null;
@@ -68,7 +70,6 @@ public class PokemonMySQLDAOImpl implements PokemonDAO{
         }
     }
 
-
     private void rollback() {
         try {
             if (connection != null) {
@@ -90,5 +91,10 @@ public class PokemonMySQLDAOImpl implements PokemonDAO{
         } catch (Exception exception) {
             throw new RuntimeException("error to close resources: " + exception.getMessage());
         }
+    }
+
+    @Override
+    public boolean supports(Class<?> selectedCass) {
+        return PokemonMySQLDAOImpl.class.isAssignableFrom(selectedCass);
     }
 }

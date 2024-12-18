@@ -22,4 +22,13 @@ public class PropertiesReader {
         }
         return property;
     }
+
+    public static Class<?> getPropertyClass(String property) {
+        String className = getProperty(property);
+        try {
+            return Class.forName(className);
+        } catch (Exception exception) {
+            throw new IllegalArgumentException("No such selector class: " + exception.getMessage(), exception);
+        }
+    }
 }

@@ -9,4 +9,6 @@ public interface PokemonDAO {
     List<PokemonDTO> findAll() throws IOException;
 
     PokemonDTO findByCode(int code) throws IOException;
+
+    boolean supports(Class<?> selectedCass);
 }

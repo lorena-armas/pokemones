@@ -1,11 +1,13 @@
 package org.example.dao;
 
+import lombok.NoArgsConstructor;
 import org.example.commons.CsvReader;
 import org.example.dto.PokemonDTO;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@NoArgsConstructor
 public class PokemonCsvDAOImpl implements PokemonDAO{
 
     private final String FILE = "/pokemones/pokemons.csv";
@@ -42,5 +44,10 @@ public class PokemonCsvDAOImpl implements PokemonDAO{
             }
         }
         throw new IllegalArgumentException("No such pokemon");
+    }
+
+    @Override
+    public boolean supports(Class<?> selectedCass) {
+        return PokemonCsvDAOImpl.class.isAssignableFrom(selectedCass);
     }
 }

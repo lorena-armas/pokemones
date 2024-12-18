@@ -1,20 +1,23 @@
 package org.example.router;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.inject.Inject;
 import org.example.dto.PokemonDTO;
 import org.example.service.PokemonService;
-import org.example.service.PokemonServiceImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+
 public class PokemonHandler {
 
-  private final static ObjectMapper objectMapper = new ObjectMapper();
+  private final ObjectMapper objectMapper;
   private final PokemonService pokemonService;
 
-  public PokemonHandler() {
-    pokemonService = new PokemonServiceImpl();
+  @Inject
+  public PokemonHandler(ObjectMapper objectMapper, PokemonService pokemonService) {
+    this.pokemonService = pokemonService;
+    this.objectMapper = objectMapper;
   }
 
   public void findAll(PrintWriter output) throws IOException {
