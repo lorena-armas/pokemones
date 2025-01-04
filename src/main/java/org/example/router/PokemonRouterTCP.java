@@ -26,14 +26,14 @@ public class PokemonRouterTCP extends Thread {
         BufferedReader inputReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         PrintWriter outputWriter = new PrintWriter(socket.getOutputStream(), true)
     ) {
-      String operation = inputReader.readLine();
+      String endpoint = inputReader.readLine();
 
-      if(operation.matches("^pokemones/\\d{3}$")) {
-        String pokemonCode = operation.split("/")[1].trim();
+      if(endpoint.matches("^pokemones/\\d{3}$")) {
+        String pokemonCode = endpoint.split("/")[1].trim();
         pokemonHandler.findByCode(Integer.parseInt(pokemonCode), outputWriter);
       }
 
-      if(operation.equals("pokemones/")) {
+      if(endpoint.equals("pokemones/")) {
         pokemonHandler.findAll(outputWriter);
       }
 

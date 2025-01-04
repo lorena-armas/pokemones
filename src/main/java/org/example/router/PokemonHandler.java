@@ -20,11 +20,11 @@ public class PokemonHandler {
     this.objectMapper = objectMapper;
   }
 
-  public void findAll(PrintWriter output) throws IOException {
+  public void findAll(PrintWriter writer) throws IOException {
     List<PokemonDTO> pokemonList = pokemonService.findAll();
     String pokemonListJSON = objectMapper.writeValueAsString(pokemonList);
 
-    output.println(pokemonListJSON);
+    writer.println(pokemonListJSON);
   }
 
   public void findByCode(int pokemonCode,PrintWriter output) throws IOException {
