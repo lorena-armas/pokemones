@@ -1,14 +1,13 @@
 package org.example.dao;
 
 import org.example.dto.PokemonDTO;
-import java.io.IOException;
 import java.util.List;
 
 public interface PokemonDAO {
 
-    List<PokemonDTO> findAll() throws IOException;
+    List<PokemonDTO> findAll();
 
-    PokemonDTO findByCode(int code) throws IOException;
+    PokemonDTO findByCode(Integer code);
 
     boolean supports(Class<?> selectedCass);
 }

@@ -1,11 +1,12 @@
 package org.example.service;
 
 import com.google.inject.Inject;
+import lombok.extern.slf4j.Slf4j;
 import org.example.dto.PokemonDTO;
 import org.example.repository.PokemonRepository;
 import java.io.IOException;
 import java.util.List;
-
+@Slf4j
 public class PokemonServiceImpl implements PokemonService{
 
     private final PokemonRepository repository;

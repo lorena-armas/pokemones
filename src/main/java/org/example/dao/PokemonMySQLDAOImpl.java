@@ -45,7 +45,7 @@ public class PokemonMySQLDAOImpl implements PokemonDAO{
     }
 
     @Override
-    public PokemonDTO findByCode(int code) {
+    public PokemonDTO findByCode(Integer code) {
         try {
             connection = MySQLConnection.getConnection();
             connection.setAutoCommit(false);
